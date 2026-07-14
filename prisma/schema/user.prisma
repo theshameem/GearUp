@@ -1,20 +1,23 @@
 model User {
-    id           String  @id @default(uuid())
-    firstName    String
-    lastName     String
-    email        String  @unique
-    phone        String? @unique
-    password     String
-    profileImage String?
-    address      String?
+  id           String  @id @default(uuid())
+  firstName    String
+  lastName     String
+  email        String  @unique
+  phone        String? @unique
+  password     String
+  profileImage String?
+  address      String?
 
-    role   UserRole
-    status UserStatus @default(ACTIVE)
+  role   UserRole
+  status UserStatus @default(ACTIVE)
 
-    // Relations: will be added later
+  // Relations: will be added later
 
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  gearItems    GearItem[]
+  rentalOrders RentalOrder[]
+  reviews      Review[]
 
-    @@map("users")
+  @@map("users")
 }

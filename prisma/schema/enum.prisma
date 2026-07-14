@@ -1,37 +1,37 @@
 enum UserRole {
-    CUSTOMER
-    PROVIDER
-    ADMIN
+  CUSTOMER
+  PROVIDER
+  ADMIN
 }
 
 enum UserStatus {
-    ACTIVE
-    SUSPENDED
+  ACTIVE
+  SUSPENDED
 }
 
 enum GearCondition {
-    NEW
-    EXCELLENT
-    GOOD
-    FAIR
+  NEW
+  EXCELLENT
+  GOOD
+  FAIR
 }
 
 enum RentalStatus {
-    PLACED
-    CONFIRMED
-    PAID
-    PICKED_UP
-    RETURNED
-    CANCELLED
+  PLACED
+  CONFIRMED
+  PAID
+  PICKED_UP
+  RETURNED
+  CANCELLED
 }
 
 enum PaymentMethod {
-    STRIPE
+  STRIPE
 }
 
 enum PaymentStatus {
-    PENDING
-    COMPLETED
-    FAILED
-    REFUNDED
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
 }

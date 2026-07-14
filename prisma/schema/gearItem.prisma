@@ -1,39 +1,39 @@
 model GearItem {
-    id String @id @default(uuid())
+  id String @id @default(uuid())
 
-    providerId String @db.Uuid
-    categoryId String @db.Uuid
+  providerId String @db.Uuid
+  categoryId String @db.Uuid
 
-    name        String
-    description String?
-    brand       String?
-    model       String?
+  name        String
+  description String?
+  brand       String?
+  model       String?
 
-    dailyRentalPrice Decimal @db.Decimal(10, 2)
-    depositAmount    Decimal @default(0) @db.Decimal(10, 2)
+  dailyRentalPrice Decimal @db.Decimal(10, 2)
+  depositAmount    Decimal @default(0) @db.Decimal(10, 2)
 
-    totalStock     Int
-    availableStock Int
+  totalStock     Int
+  availableStock Int
 
-    condition GearCondition
+  condition GearCondition
 
-    imageUrl String?
+  imageUrl String?
 
-    specifications Json?
+  specifications Json?
 
-    isActive Boolean @default(true)
+  isActive Boolean @default(true)
 
-    provider User     @relation(fields: [providerId], references: [id], onDelete: Cascade)
-    category Category @relation(fields: [categoryId], references: [id])
+  provider User     @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  category Category @relation(fields: [categoryId], references: [id])
 
-    orderItems RentalOrderItem[]
-    reviews    Review[]
+  orderItems RentalOrderItem[]
+  reviews    Review[]
 
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-    @@index([providerId])
-    @@index([categoryId])
-    @@index([brand])
-    @@map("gear_items")
+  @@index([providerId])
+  @@index([categoryId])
+  @@index([brand])
+  @@map("gear_items")
 }
