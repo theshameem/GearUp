@@ -7,7 +7,7 @@ model User {
   profileImage String?
   address      String?
 
-  role   UserRole
+  role   UserRole   @default(CUSTOMER)
   status UserStatus @default(ACTIVE)
 
   gearItems    GearItem[]
