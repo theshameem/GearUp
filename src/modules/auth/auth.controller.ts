@@ -38,7 +38,7 @@ const loginUser = catchAsync(
     });
 
     sendResponse(res, {
-      statusCode: 200,
+      statusCode: httpStatus.OK,
       success: true,
       message: "User logged in successfully",
       data: { accessToken, refreshToken },
@@ -47,7 +47,18 @@ const loginUser = catchAsync(
 );
 
 const myDetails = catchAsync(
-  async (req: Request, res: Response, next: NextFunction) => {},
+  async (req: Request, res: Response, next: NextFunction) => {
+    const result = await authService.loggedInUserDetails(
+      req.user?.email as string,
+    );
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "User profile fetched successfully",
+      data: result,
+    });
+  },
 );
 
 export const authController = {

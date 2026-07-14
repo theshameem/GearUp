@@ -80,7 +80,18 @@ const loginUser = async (payload: ILoginUser) => {
   return { accessToken, refreshToken };
 };
 
-const loggedInUserDetails = async (userId: string) => {};
+const loggedInUserDetails = async (email: string) => {
+  const user = await prisma.user.findFirstOrThrow({
+    where: {
+      email,
+    },
+    omit: {
+      password: true,
+    },
+  });
+
+  return user;
+};
 
 export const authService = {
   loginUser,
