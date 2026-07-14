@@ -1,5 +1,5 @@
 model RentalOrderItem {
-  id String @id @default(uuid())
+  id String @id @default(uuid()) @db.Uuid
 
   rentalOrderId String @db.Uuid
   gearItemId    String @db.Uuid

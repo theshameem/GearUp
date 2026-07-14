@@ -1,5 +1,5 @@
 model GearItem {
-  id String @id @default(uuid())
+  id String @id @default(uuid()) @db.Uuid
 
   providerId String @db.Uuid
   categoryId String @db.Uuid
