@@ -7,8 +7,6 @@ import { authService } from "./auth.service";
 const registerUser = catchAsync(async (req: Request, res: Response) => {
   const payload = req.body;
 
-  console.log("indise gerre");
-
   const user = await authService.registerUserIntoDB(payload);
 
   sendResponse(res, {
