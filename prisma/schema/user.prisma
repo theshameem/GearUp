@@ -1,0 +1,20 @@
+model User {
+    id           String  @id @default(uuid())
+    firstName    String
+    lastName     String
+    email        String  @unique
+    phone        String? @unique
+    password     String
+    profileImage String?
+    address      String?
+
+    role   UserRole
+    status UserStatus @default(ACTIVE)
+
+    // Relations: will be added later
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("users")
+}
