@@ -4,6 +4,7 @@ import express, { Application } from "express";
 import config from "./config";
 import { globalErrorHandler } from "./middlewares/globalErrorHandler";
 import { authRoutes } from "./modules/auth/auth.route";
+import { gearRoutes } from "./modules/gear/gear.route";
 
 const app: Application = express();
 
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/gear", gearRoutes);
 
 app.use(globalErrorHandler);
 
