@@ -8,3 +8,10 @@ enum UserStatus {
     ACTIVE
     SUSPENDED
 }
+
+enum GearCondition {
+    NEW
+    EXCELLENT
+    GOOD
+    FAIR
+}
