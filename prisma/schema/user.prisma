@@ -10,13 +10,12 @@ model User {
   role   UserRole
   status UserStatus @default(ACTIVE)
 
-  // Relations: will be added later
-
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
   gearItems    GearItem[]
   rentalOrders RentalOrder[]
   reviews      Review[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("users")
 }
