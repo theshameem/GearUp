@@ -3,6 +3,7 @@ import cors from "cors";
 import express, { Application } from "express";
 import config from "./config";
 import { globalErrorHandler } from "./middlewares/globalErrorHandler";
+import { notFound } from "./middlewares/notFound";
 import { adminRoutes } from "./modules/admin/admin.route";
 import { authRoutes } from "./modules/auth/auth.route";
 import { gearRoutes } from "./modules/gear/gear.route";
@@ -29,6 +30,8 @@ app.use("/api/rentals", rentalRoutes);
 app.use("/api/provider", providerRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/admin", adminRoutes);
+
+app.use(notFound);
 
 app.use(globalErrorHandler);
 
