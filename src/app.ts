@@ -6,6 +6,7 @@ import { globalErrorHandler } from "./middlewares/globalErrorHandler";
 import { adminRoutes } from "./modules/admin/admin.route";
 import { authRoutes } from "./modules/auth/auth.route";
 import { gearRoutes } from "./modules/gear/gear.route";
+import { providerRoutes } from "./modules/provider/provider.route";
 import { rentalRoutes } from "./modules/rental/rental.route";
 import { reviewRoutes } from "./modules/review/review.route";
 
@@ -25,6 +26,7 @@ app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/gear", gearRoutes);
 app.use("/api/rentals", rentalRoutes);
+app.use("/api/provider", providerRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/admin", adminRoutes);
 
