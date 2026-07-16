@@ -1,16 +1,38 @@
 import { Router } from "express";
+import { UserRole } from "../../../generated/prisma/enums";
+import { auth } from "../../middlewares/auth";
 import { providerController } from "./provider.controller";
 
 const route = Router();
 
-route.post("/gear", providerController.addGearToInventory);
+route.post(
+  "/gear",
+  auth(UserRole.PROVIDER),
+  providerController.addGearToInventory,
+);
 
-route.put("/gear/:id", providerController.updateGearById);
+route.put(
+  "/gear/:id",
+  auth(UserRole.PROVIDER),
+  providerController.updateGearById,
+);
 
-route.delete("/gear/:id", providerController.deleteGearById);
+route.delete(
+  "/gear/:id",
+  auth(UserRole.PROVIDER),
+  providerController.deleteGearById,
+);
 
-route.get("/orders", providerController.getProvidersIncomingOrder);
+route.get(
+  "/orders",
+  auth(UserRole.PROVIDER),
+  providerController.getProvidersIncomingOrder,
+);
 
-route.get("/orders/:id", providerController.updateRentalOrderStatusById);
+route.get(
+  "/orders/:id",
+  auth(UserRole.PROVIDER),
+  providerController.updateRentalOrderStatusById,
+);
 
 export const providerRoutes = route;
