@@ -29,7 +29,7 @@ route.get(
   providerController.getProvidersIncomingOrder,
 );
 
-route.get(
+route.patch(
   "/orders/:id",
   auth(UserRole.PROVIDER),
   providerController.updateRentalOrderStatusById,
