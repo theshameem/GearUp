@@ -22,8 +22,6 @@ app.use(
   }),
 );
 
-app.use("/api/payments/webhook", paymentRoutes);
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());

@@ -23,6 +23,10 @@ const registerUserIntoDB = async (payload: RegisterUserPayload) => {
     Number(config.bcrypt_salt_rounds),
   );
 
+  if (!payload.role || (payload.role !== "CUSTOMER" && payload.role !== "PROVIDER")) {
+    throw new Error("role must be either CUSTOMER or PROVIDER");
+  }
+
   const createdUser = await prisma.user.create({
     data: {
       name,

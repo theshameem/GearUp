@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import httpStatus from "http-status";
+import config from "../../config";
 import { catchAsync } from "../../utils/catchAsync";
 import { sendResponse } from "../../utils/sendResponse";
 import { authService } from "./auth.service";
@@ -25,15 +26,15 @@ const loginUser = catchAsync(
 
     res.cookie("accessToken", accessToken, {
       httpOnly: true,
-      secure: false,
-      sameSite: "none",
+      secure: config.IS_PRODUCTION,
+      sameSite: config.IS_PRODUCTION ? "none" : "lax",
       maxAge: 1000 * 60 * 60 * 24,
     });
 
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: false,
-      sameSite: "none",
+      secure: config.IS_PRODUCTION,
+      sameSite: config.IS_PRODUCTION ? "none" : "lax",
       maxAge: 1000 * 60 * 60 * 24 * 7,
     });
 

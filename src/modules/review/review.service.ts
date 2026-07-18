@@ -15,6 +15,10 @@ const createReviewIntoDb = async (
     },
   });
 
+  if (rentalOrder.customerId !== customerId) {
+    throw new Error("You can only review gear from your own rental order");
+  }
+
   if (rentalOrder.status !== RentalStatus.RETURNED) {
     throw new Error(
       "You can only leave a review after the rental order is returned",
