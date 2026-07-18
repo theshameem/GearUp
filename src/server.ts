@@ -1,12 +1,14 @@
 import "dotenv/config";
 import app from "./app";
-import config from "./config";
+import config, { validateEnv } from "./config";
 import { prisma } from "./lib/prisma";
 
 const PORT = config.PORT;
 
 async function main() {
   try {
+    validateEnv();
+
     await prisma.$connect();
 
     app.listen(PORT, () => {
