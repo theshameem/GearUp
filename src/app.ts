@@ -2,6 +2,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import express, { Application } from "express";
 import config from "./config";
+import { mountSwagger } from "./config/swagger";
 import { globalErrorHandler } from "./middlewares/globalErrorHandler";
 import { notFound } from "./middlewares/notFound";
 import { adminRoutes } from "./modules/admin/admin.route";
@@ -34,6 +35,8 @@ app.use("/api/provider", providerRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/payments", paymentRoutes);
 app.use("/api/admin", adminRoutes);
+
+mountSwagger(app);
 
 app.use(notFound);
 
