@@ -14,6 +14,10 @@ const swaggerOptions: swaggerJsdoc.Options = {
     },
     servers: [
       {
+        url: "https://gearup-ptbc.onrender.com/api",
+        description: "Production",
+      },
+      {
         url: `http://localhost:${config.PORT || 5000}/api`,
         description: "Local development",
       },
